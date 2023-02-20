@@ -1,0 +1,54 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Crear Usuario</span>
+      </mat-toolbar>
+      <mat-card style="margin-top: 10px;">
+        <mat-card-content>
+            <form (ngSubmit)="agregarUsuario()" [formGroup]="form">
+            <mat-grid-list cols="4" rowHeight="70px" >
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="ancho" appearance="fill">
+                        <mat-label >Usuario</mat-label>
+                        <input matInput formControlName="usuario">
+                      </mat-form-field>
+                </mat-grid-tile>
+                  
+                <mat-grid-tile [colspan]="3" [rowspan]="5">
+                    <img src="./../../../../../assets/img/users.png" alt="user pic" style="object-fit: cover;width: 250px;">
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="ancho" appearance="fill">
+                        <mat-label >Nombre</mat-label>
+                        <input matInput formControlName="nombre">
+                      </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="ancho" appearance="fill">
+                        <mat-label >Apellido</mat-label>
+                        <input matInput formControlName="apellido">
+                      </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1" >
+                    <mat-form-field class="ancho">
+                        <mat-label>Sexo</mat-label>
+                        <mat-select formControlName="sexo" [(value)]="selectedSexo">
+                          <mat-option></mat-option>
+                             <mat-option [value]="option.value" *ngFor="let option of sexo">{{ option.viewValue }}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <div>
+                    <button mat-raised-button color="basic" style="margin-right: 20px;">Volver</button>
+                    <button type="submit" [disabled]="form.invalid" mat-raised-button  color="primary" >Aceptar</button>
+                </div>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+        </form></mat-card-content>
+      </mat-card>
+</div>
